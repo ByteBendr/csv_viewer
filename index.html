@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Viewer</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Montserrat Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        #file-upload-container {
+            text-align: center;
+            margin: 20px auto;
+        }
+        #file-input {
+            display: none;
+        }
+        #file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #007bff;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        #file-label:hover {
+            background-color: #e9ecef;
+            border-color: #0056b3;
+        }
+        #csv-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        #csv-table th, #csv-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        #csv-table th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        #csv-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #csv-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .icon {
+            font-size: 16px;
+            color: #007bff;
+        }
+
+                /* Responsive styling */
+        @media (max-width: 768px) {
+            #csv-table {
+                font-size: 14px;
+            }
+
+            #csv-table th, #csv-table td {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #csv-table {
+                font-size: 12px;
+            }
+
+            #csv-table th, #csv-table td {
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>CSV Viewer <i class="fas fa-file-csv icon"></i></h1>
+    <div id="file-upload-container">
+        <label for="file-input" id="file-label"><i class="fas fa-upload"></i> Upload File</label>
+        <input type="file" id="file-input" accept=".csv, .xls, .xlsx" />
+    </div>
+    <table id="csv-table"></table>
+
+    <!-- PapaParse library for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    
+    <!-- SheetJS library for Excel parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
